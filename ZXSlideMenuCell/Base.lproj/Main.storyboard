@@ -23,7 +23,7 @@
                                     <constraint firstAttribute="height" constant="44" id="hKT-Pk-0Oy"/>
                                 </constraints>
                                 <items>
-                                    <navigationItem title="Title" id="jlc-xX-ozh">
+                                    <navigationItem title="Cell滑动菜单" id="jlc-xX-ozh">
                                         <barButtonItem key="rightBarButtonItem" systemItem="add" id="ig9-Tk-dPO">
                                             <connections>
                                                 <action selector="addNewCell:" destination="BYZ-38-t0r" id="W5a-BR-IiN"/>

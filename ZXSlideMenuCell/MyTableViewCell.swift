@@ -26,7 +26,6 @@ class MyTableViewCell: ZXSlideMenuCell {
 
     override func setSelected(selected: Bool, animated: Bool) {
         super.setSelected(selected, animated: animated)
-        self.myContentView.backgroundColor = selected ?  UIColor.grayColor() : UIColor.whiteColor()
     }
     
     @IBAction func deleteBtnClicked(sender: UIButton) {
