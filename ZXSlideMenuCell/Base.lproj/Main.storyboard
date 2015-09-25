@@ -1,0 +1,64 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.Storyboard.XIB" version="3.0" toolsVersion="8191" systemVersion="14F27" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" initialViewController="BYZ-38-t0r">
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="8154"/>
+    </dependencies>
+    <scenes>
+        <!--View Controller-->
+        <scene sceneID="tne-QT-ifu">
+            <objects>
+                <viewController id="BYZ-38-t0r" customClass="ViewController" customModule="ZXSlideMenuCell" customModuleProvider="target" sceneMemberID="viewController">
+                    <layoutGuides>
+                        <viewControllerLayoutGuide type="top" id="y3c-jy-aDJ"/>
+                        <viewControllerLayoutGuide type="bottom" id="wfy-db-euE"/>
+                    </layoutGuides>
+                    <view key="view" contentMode="scaleToFill" id="8bC-Xf-vdC">
+                        <rect key="frame" x="0.0" y="0.0" width="320" height="568"/>
+                        <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+                        <subviews>
+                            <navigationBar contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="5g2-qe-O9b">
+                                <rect key="frame" x="0.0" y="20" width="320" height="44"/>
+                                <constraints>
+                                    <constraint firstAttribute="height" constant="44" id="hKT-Pk-0Oy"/>
+                                </constraints>
+                                <items>
+                                    <navigationItem title="Title" id="jlc-xX-ozh">
+                                        <barButtonItem key="rightBarButtonItem" systemItem="add" id="ig9-Tk-dPO">
+                                            <connections>
+                                                <action selector="addNewCell:" destination="BYZ-38-t0r" id="W5a-BR-IiN"/>
+                                            </connections>
+                                        </barButtonItem>
+                                    </navigationItem>
+                                </items>
+                            </navigationBar>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="44" sectionHeaderHeight="28" sectionFooterHeight="28" translatesAutoresizingMaskIntoConstraints="NO" id="MsQ-nY-fjb">
+                                <rect key="frame" x="0.0" y="64" width="320" height="504"/>
+                                <color key="backgroundColor" white="1" alpha="1" colorSpace="calibratedWhite"/>
+                                <connections>
+                                    <outlet property="dataSource" destination="BYZ-38-t0r" id="9LN-6x-4cj"/>
+                                    <outlet property="delegate" destination="BYZ-38-t0r" id="ti9-dx-lbR"/>
+                                </connections>
+                            </tableView>
+                        </subviews>
+                        <color key="backgroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="calibratedWhite"/>
+                        <constraints>
+                            <constraint firstItem="5g2-qe-O9b" firstAttribute="top" secondItem="y3c-jy-aDJ" secondAttribute="bottom" id="4nM-bG-Yxv"/>
+                            <constraint firstItem="5g2-qe-O9b" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="9Bl-mN-RMC"/>
+                            <constraint firstAttribute="trailing" secondItem="5g2-qe-O9b" secondAttribute="trailing" id="VoM-10-nkp"/>
+                            <constraint firstItem="MsQ-nY-fjb" firstAttribute="top" secondItem="5g2-qe-O9b" secondAttribute="bottom" id="fsy-ES-VrP"/>
+                            <constraint firstItem="wfy-db-euE" firstAttribute="top" secondItem="MsQ-nY-fjb" secondAttribute="bottom" id="gD2-Wd-RUk"/>
+                            <constraint firstAttribute="trailing" secondItem="MsQ-nY-fjb" secondAttribute="trailing" id="pUG-li-EeL"/>
+                            <constraint firstItem="MsQ-nY-fjb" firstAttribute="leading" secondItem="8bC-Xf-vdC" secondAttribute="leading" id="yYF-yq-0Zs"/>
+                        </constraints>
+                    </view>
+                    <connections>
+                        <outlet property="tableView" destination="MsQ-nY-fjb" id="JNw-ST-Zno"/>
+                    </connections>
+                </viewController>
+                <placeholder placeholderIdentifier="IBFirstResponder" id="dkx-z0-nzr" sceneMemberID="firstResponder"/>
+            </objects>
+            <point key="canvasLocation" x="149" y="311"/>
+        </scene>
+    </scenes>
+</document>
