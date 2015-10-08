@@ -12,6 +12,9 @@ let ZXSlideMenuCellOpened = "ZXSlideMenuCellOpened"
 let ZXSlideMenuCellClosed = "ZXSlideMenuCellClosed"
 
 public class ZXSlideMenuCell: UITableViewCell {
+    
+    let EdgePanThreshold = CGFloat(55)
+    let MenuSledeToOpenThreshold = CGFloat(-45)
 
     weak var delegate: ZXSlideMenuCellDelegate?
     var isCellOpened = false
@@ -61,7 +64,7 @@ public class ZXSlideMenuCell: UITableViewCell {
         
         if gesture.state == .Ended
         {
-            if point.x < -45 {
+            if point.x < MenuSledeToOpenThreshold {
                 self.openMenu()
             } else {
                 self.colseMenu()
@@ -76,7 +79,7 @@ public class ZXSlideMenuCell: UITableViewCell {
             let point = gesture.translationInView(self)
             let lPont = gesture.locationInView(self)
             
-            if (lPont.x < 55 && point.x > 0) {
+            if (lPont.x < EdgePanThreshold && point.x > 0) {
                 return false
             }
             if abs(point.x) - 1 > abs(point.y) {
