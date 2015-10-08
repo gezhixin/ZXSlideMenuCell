@@ -22,7 +22,7 @@ public class ZXSlideMenuCell: UITableViewCell {
     
     private var pan: UIPanGestureRecognizer?
    
-    /// 在xib里，在底层“菜单按钮”之上，作为Cell最总的contentView
+    /// xib里，在底层“菜单按钮”之上，作为Cell最终的contentView
     var zxContentView: UIView? {
         didSet{
             if let contentV = zxContentView {
