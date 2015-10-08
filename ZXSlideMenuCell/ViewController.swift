@@ -10,12 +10,13 @@ import UIKit
 
 class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSource,  MyTableViewCellDelegate {
     
+    //MARK: - Property
     var tableData: [String]? = ["cell 0", "cell 1", "cell 2", "cell 3", "cell 4","cell 5", "cell 6"]
     var openedCell: MyTableViewCell?
 
     @IBOutlet weak var tableView: UITableView!
     
-    
+    //MARK: - Life Cycle
     override func viewDidLoad() {
         super.viewDidLoad()
     }
@@ -61,8 +62,8 @@ class ViewController: UIViewController, UITableViewDelegate, UITableViewDataSour
     }
     
     private func closeOpenedCell() {
-        if self.openedCell != nil {
-            self.openedCell!.colseMenu()
+        if let openedCell = self.openedCell {
+            openedCell.colseMenu()
             self.openedCell = nil
             return
         }

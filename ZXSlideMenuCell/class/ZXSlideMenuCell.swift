@@ -16,8 +16,10 @@ public class ZXSlideMenuCell: UITableViewCell {
     weak var delegate: ZXSlideMenuCellDelegate?
     var isCellOpened = false
     var backMenuWidth: CGFloat = 150   //子类重新赋值
+    
     private var pan: UIPanGestureRecognizer?
    
+    /// 在xib里，在底层“菜单按钮”之上，作为Cell最总的contentView
     var zxContentView: UIView? {
         didSet{
             if let contentV = zxContentView {
@@ -29,7 +31,6 @@ public class ZXSlideMenuCell: UITableViewCell {
             }
         }
     }
-
     
     override public func awakeFromNib() {
         super.awakeFromNib()
@@ -45,6 +46,7 @@ public class ZXSlideMenuCell: UITableViewCell {
     func setMyContentViewX(x: CGFloat) {
     }
     
+    //MARK: 手势处理相关
     func pan(gesture:UIPanGestureRecognizer)
     {
         let point = gesture.translationInView(self)
@@ -67,6 +69,7 @@ public class ZXSlideMenuCell: UITableViewCell {
         }
     }
     
+    /// 处理cell手势和TableView手势冲突问题
     override public func gestureRecognizerShouldBegin(gestureRecognizer: UIGestureRecognizer) -> Bool {
         if gestureRecognizer.isKindOfClass(UIPanGestureRecognizer) {
             let gesture = gestureRecognizer as! UIPanGestureRecognizer
@@ -85,6 +88,8 @@ public class ZXSlideMenuCell: UITableViewCell {
         return super.gestureRecognizerShouldBegin(gestureRecognizer)
     }
     
+    
+    //MARK: - 打开／关闭
     func colseMenu() {
         self.isCellOpened = false
         UIView.animateWithDuration(0.15, animations: { () -> Void in
@@ -138,12 +143,11 @@ public class ZXSlideMenuCell: UITableViewCell {
         }
     }
     
-    func menuClosed(postCell: UITableViewCell) {
+    func menuClosed(notification: NSNotification) {
         
     }
     
-    override public func finalize() {
-        super.finalize()
+    deinit {
         NSNotificationCenter.defaultCenter().removeObserver(self, name: ZXSlideMenuCellClosed, object: nil)
         NSNotificationCenter.defaultCenter().removeObserver(self, name: ZXSlideMenuCellOpened, object: nil)
     }
